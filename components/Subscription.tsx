@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { mockBackend } from '../services/mockBackend';
-import { Plan, Subscription, Payment } from '../types';
+import { Plan, Subscription as SubscriptionType, Payment } from '../types';
 import { CreditCard, Check, ShieldCheck, Clock, Receipt } from 'lucide-react';
 
 const Subscription: React.FC = () => {
   const { user } = useAuth();
   const [plans, setPlans] = useState<Plan[]>([]);
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [subscription, setSubscription] = useState<SubscriptionType | null>(null);
   const [payments, setPayments] = useState<Payment[]>([]);
   const [loading, setLoading] = useState(true);
   const [processingId, setProcessingId] = useState<string | null>(null);
